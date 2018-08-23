@@ -6,6 +6,10 @@ var _express = require('express');
 
 var _express2 = _interopRequireDefault(_express);
 
+var _bodyParser = require('body-parser');
+
+var _bodyParser2 = _interopRequireDefault(_bodyParser);
+
 var _index = require('./routes/index');
 
 var _index2 = _interopRequireDefault(_index);
@@ -21,7 +25,8 @@ var CLIENT_PATH = (0, _path.join)(__dirname, '../../client');
 var app = (0, _express2.default)();
 
 app.use(_express2.default.static(CLIENT_PATH));
-app.use(_express2.default.json());
+app.use(_bodyParser2.default.json());
+app.use(_bodyParser2.default.urlencoded({ extended: false }));
 
 app.use('/api', _index2.default);
 

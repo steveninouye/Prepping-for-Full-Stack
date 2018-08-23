@@ -4,7 +4,7 @@ import 'isomorphic-fetch';
 import { polyfill } from 'es6-promise';
 polyfill();
 
-import Home from './Home';
+import Home from './Home/Home';
 import Details from './Details';
 
 class App extends Component {

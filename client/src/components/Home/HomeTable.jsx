@@ -1,9 +1,9 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Link, Route } from 'react-router-dom';
 
-import url from '../env/serverUrl';
+import url from '../../env/serverUrl';
 
-class Home extends Component {
+class HomeTable extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -26,13 +26,16 @@ class Home extends Component {
             <tr key={idx}>
                 <td>{chirp.name}</td>
                 <td>{chirp.age}</td>
+                <td>
+                    <button>See Details</button>
+                </td>
             </tr>
         ));
         return chirps.length > 0 ? (
             chirps
         ) : (
             <tr>
-                <td colSpan="2">There Are No People</td>
+                <td colSpan="3">There Are No People</td>
             </tr>
         );
     }
@@ -42,24 +45,22 @@ class Home extends Component {
             this.listChirps()
         ) : (
             <tr>
-                <td colSpan="2">Loading...</td>
+                <td colSpan="3">Loading...</td>
             </tr>
         );
         return (
-            <Fragment>
-                <h1>Hello from Home</h1>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Age</th>
-                        </tr>
-                    </thead>
-                    <tbody>{tableData}</tbody>
-                </table>
-            </Fragment>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>{tableData}</tbody>
+            </table>
         );
     }
 }
 
-export default Home;
+export default HomeTable;

@@ -21980,7 +21980,7 @@ __webpack_require__(71);
 
 var _es6Promise = __webpack_require__(73);
 
-var _Home = __webpack_require__(75);
+var _Home = __webpack_require__(80);
 
 var _Home2 = _interopRequireDefault(_Home);
 
@@ -26250,152 +26250,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 75 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRouterDom = __webpack_require__(15);
-
-var _serverUrl = __webpack_require__(76);
-
-var _serverUrl2 = _interopRequireDefault(_serverUrl);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Home = function (_Component) {
-    _inherits(Home, _Component);
-
-    function Home(props) {
-        _classCallCheck(this, Home);
-
-        var _this = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
-
-        _this.state = {
-            chirps: false
-        };
-        return _this;
-    }
-
-    _createClass(Home, [{
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-            this.getChirps();
-        }
-    }, {
-        key: 'getChirps',
-        value: function getChirps() {
-            var _this2 = this;
-
-            fetch(_serverUrl2.default).then(function (res) {
-                return res.json();
-            }).then(function (chirps) {
-                return _this2.setState({ chirps: chirps });
-            });
-        }
-    }, {
-        key: 'listChirps',
-        value: function listChirps() {
-            var chirps = this.state.chirps.map(function (chirp, idx) {
-                return _react2.default.createElement(
-                    'tr',
-                    { key: idx },
-                    _react2.default.createElement(
-                        'td',
-                        null,
-                        chirp.name
-                    ),
-                    _react2.default.createElement(
-                        'td',
-                        null,
-                        chirp.age
-                    )
-                );
-            });
-            return chirps.length > 0 ? chirps : _react2.default.createElement(
-                'tr',
-                null,
-                _react2.default.createElement(
-                    'td',
-                    { colSpan: '2' },
-                    'There Are No People'
-                )
-            );
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            var tableData = this.state.chirps ? this.listChirps() : _react2.default.createElement(
-                'tr',
-                null,
-                _react2.default.createElement(
-                    'td',
-                    { colSpan: '2' },
-                    'Loading...'
-                )
-            );
-            return _react2.default.createElement(
-                _react.Fragment,
-                null,
-                _react2.default.createElement(
-                    'h1',
-                    null,
-                    'Hello from Home'
-                ),
-                _react2.default.createElement(
-                    'table',
-                    null,
-                    _react2.default.createElement(
-                        'thead',
-                        null,
-                        _react2.default.createElement(
-                            'tr',
-                            null,
-                            _react2.default.createElement(
-                                'th',
-                                null,
-                                'Name'
-                            ),
-                            _react2.default.createElement(
-                                'th',
-                                null,
-                                'Age'
-                            )
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'tbody',
-                        null,
-                        tableData
-                    )
-                )
-            );
-        }
-    }]);
-
-    return Home;
-}(_react.Component);
-
-exports.default = Home;
-
-/***/ }),
+/* 75 */,
 /* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26459,6 +26314,318 @@ var Details = function (_Component) {
 }(_react.Component);
 
 exports.default = Details;
+
+/***/ }),
+/* 78 */,
+/* 79 */,
+/* 80 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _HomeForm = __webpack_require__(82);
+
+var _HomeForm2 = _interopRequireDefault(_HomeForm);
+
+var _HomeTable = __webpack_require__(81);
+
+var _HomeTable2 = _interopRequireDefault(_HomeTable);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Home = function Home(props) {
+    return _react2.default.createElement(
+        _react.Fragment,
+        null,
+        _react2.default.createElement(
+            'h1',
+            null,
+            'Welcome to Home'
+        ),
+        _react2.default.createElement(_HomeForm2.default, null),
+        _react2.default.createElement(_HomeTable2.default, null)
+    );
+};
+
+exports.default = Home;
+
+/***/ }),
+/* 81 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(15);
+
+var _serverUrl = __webpack_require__(76);
+
+var _serverUrl2 = _interopRequireDefault(_serverUrl);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var HomeTable = function (_Component) {
+    _inherits(HomeTable, _Component);
+
+    function HomeTable(props) {
+        _classCallCheck(this, HomeTable);
+
+        var _this = _possibleConstructorReturn(this, (HomeTable.__proto__ || Object.getPrototypeOf(HomeTable)).call(this, props));
+
+        _this.state = {
+            chirps: false
+        };
+        return _this;
+    }
+
+    _createClass(HomeTable, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.getChirps();
+        }
+    }, {
+        key: 'getChirps',
+        value: function getChirps() {
+            var _this2 = this;
+
+            fetch(_serverUrl2.default).then(function (res) {
+                return res.json();
+            }).then(function (chirps) {
+                return _this2.setState({ chirps: chirps });
+            });
+        }
+    }, {
+        key: 'listChirps',
+        value: function listChirps() {
+            var chirps = this.state.chirps.map(function (chirp, idx) {
+                return _react2.default.createElement(
+                    'tr',
+                    { key: idx },
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        chirp.name
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        chirp.age
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        _react2.default.createElement(
+                            'button',
+                            null,
+                            'See Details'
+                        )
+                    )
+                );
+            });
+            return chirps.length > 0 ? chirps : _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement(
+                    'td',
+                    { colSpan: '3' },
+                    'There Are No People'
+                )
+            );
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var tableData = this.state.chirps ? this.listChirps() : _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement(
+                    'td',
+                    { colSpan: '3' },
+                    'Loading...'
+                )
+            );
+            return _react2.default.createElement(
+                'table',
+                null,
+                _react2.default.createElement(
+                    'thead',
+                    null,
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'th',
+                            null,
+                            'Name'
+                        ),
+                        _react2.default.createElement(
+                            'th',
+                            null,
+                            'Age'
+                        ),
+                        _react2.default.createElement(
+                            'th',
+                            null,
+                            'Details'
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'tbody',
+                    null,
+                    tableData
+                )
+            );
+        }
+    }]);
+
+    return HomeTable;
+}(_react.Component);
+
+exports.default = HomeTable;
+
+/***/ }),
+/* 82 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _serverUrl = __webpack_require__(76);
+
+var _serverUrl2 = _interopRequireDefault(_serverUrl);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var HomeTable = function (_Component) {
+    _inherits(HomeTable, _Component);
+
+    function HomeTable(props) {
+        _classCallCheck(this, HomeTable);
+
+        var _this = _possibleConstructorReturn(this, (HomeTable.__proto__ || Object.getPrototypeOf(HomeTable)).call(this, props));
+
+        _this.state = {
+            name: '',
+            age: ''
+        };
+        _this.handleChange = _this.handleChange.bind(_this);
+        _this.handleSubmit = _this.handleSubmit.bind(_this);
+        return _this;
+    }
+
+    _createClass(HomeTable, [{
+        key: 'handleSubmit',
+        value: function handleSubmit() {
+            fetch(_serverUrl2.default, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(this.state)
+            }).then(function (res) {
+                return console.log('response:', res);
+            }).catch(function (e) {
+                return console.log('error:', e);
+            });
+        }
+    }, {
+        key: 'handleChange',
+        value: function handleChange(e) {
+            this.setState(_defineProperty({}, e.target.name, e.target.value)); // valuable react form method
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                _react.Fragment,
+                null,
+                _react2.default.createElement(
+                    'form',
+                    { onSubmit: this.handleSubmit },
+                    _react2.default.createElement(
+                        'label',
+                        { htmlFor: 'name' },
+                        'Name:'
+                    ),
+                    _react2.default.createElement('input', {
+                        type: 'text',
+                        name: 'name',
+                        id: 'name',
+                        placeholder: 'name',
+                        value: this.state.name,
+                        onChange: this.handleChange
+                    }),
+                    _react2.default.createElement(
+                        'label',
+                        { htmlFor: 'age' },
+                        'Age:'
+                    ),
+                    _react2.default.createElement('input', {
+                        type: 'number',
+                        name: 'age',
+                        id: 'age',
+                        placeholder: 'age',
+                        value: this.state.age,
+                        onChange: this.handleChange
+                    }),
+                    _react2.default.createElement(
+                        'button',
+                        { type: 'submit' },
+                        'Submit'
+                    )
+                )
+            );
+        }
+    }]);
+
+    return HomeTable;
+}(_react.Component);
+
+exports.default = HomeTable;
 
 /***/ })
 /******/ ]);
