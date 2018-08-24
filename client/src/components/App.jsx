@@ -5,14 +5,14 @@ import { polyfill } from 'es6-promise';
 polyfill();
 
 import Home from './Home/Home';
-import Details from './Details';
+import Details from './Details/Details';
 
 class App extends Component {
     render() {
         return (
             <Router>
                 <Switch>
-                    <Route path="/details" component={Details} />
+                    <Route path="/details/:id" component={Details} />
                     <Route path="/" component={Home} />
                 </Switch>
             </Router>

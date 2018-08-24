@@ -27,7 +27,9 @@ class HomeTable extends Component {
                 <td>{chirp.name}</td>
                 <td>{chirp.age}</td>
                 <td>
-                    <button>See Details</button>
+                    <Link to={`/details/${chirp.id}`}>
+                        <button>See Details</button>
+                    </Link>
                 </td>
             </tr>
         ));
