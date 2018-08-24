@@ -6,13 +6,15 @@ polyfill();
 
 import Home from './Home/Home';
 import Details from './Details/Details';
+import Edit from './Edit/Edit';
 
 class App extends Component {
     render() {
         return (
             <Router>
                 <Switch>
-                    <Route path="/details/:id" component={Details} />
+                    <Route path="/chirp/:id/edit" component={Edit} />
+                    <Route path="/chirp/:id" component={Details} />
                     <Route path="/" component={Home} />
                 </Switch>
             </Router>

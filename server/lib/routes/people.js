@@ -32,4 +32,16 @@ router.post('/', function (req, res) {
     res.send('hello from post route');
 });
 
+router.put('/', function (req, res) {
+    var id = parseInt(req.body.id, 10);
+    (0, _chirpstore.UpdateChirp)(id, req.body);
+    res.send('hello from put route');
+});
+
+router.delete('/', function (req, res) {
+    var id = parseInt(req.body.id, 10);
+    (0, _chirpstore.DeleteChirp)(id);
+    res.send('hello from delete route');
+});
+
 exports.default = router;

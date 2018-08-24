@@ -10,8 +10,6 @@ let getChirps = () => {
 };
 
 let getChirp = (id) => {
-    console.log(id);
-    console.log(typeof id);
     return chirps.filter((e) => e.id === id)[0]; //create a copy and return it
 };
 
@@ -22,14 +20,14 @@ let createChirp = (chirp) => {
 };
 
 let updateChirp = (id, chirp) => {
-    const idx = chirps.findIndex((e) => (e.id = id));
-    chirp.id = id;
-    chirps[idx] = chirp;
+    const idx = chirps.findIndex((e) => e.id === id);
+    chirps.splice(idx, 1, chirp);
     writeChirps();
+    return true;
 };
 
 let deleteChirp = (id) => {
-    const idx = chirps.findIndex((e) => (e.id = id));
+    const idx = chirps.findIndex((e) => e.id === id);
     chirps.splice(idx, 1);
     writeChirps();
 };

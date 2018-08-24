@@ -13,15 +13,19 @@ class HomeTable extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit() {
+    handleSubmit(e) {
+        e.preventDefault();
         fetch(url, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json; charset=utf-8'
             },
             body: JSON.stringify(this.state)
         })
-            .then((res) => console.log('response:', res))
+            .then((res) => {
+                this.props.getChirps();
+                this.props.history.push('/');
+            })
             .catch((e) => console.log('error:', e));
     }
 
@@ -41,6 +45,7 @@ class HomeTable extends Component {
                         placeholder="name"
                         value={this.state.name}
                         onChange={this.handleChange}
+                        required
                     />
                     <label htmlFor="age">Age:</label>
                     <input
@@ -50,6 +55,7 @@ class HomeTable extends Component {
                         placeholder="age"
                         value={this.state.age}
                         onChange={this.handleChange}
+                        required
                     />
                     <button type="submit">Submit</button>
                 </form>

@@ -32,6 +32,7 @@ class Details extends Component {
                     <h1>User {id} Details</h1>
                     <h2>Name: {name}</h2>
                     <h2>Age: {age}</h2>
+                    <Link to={`/chirp/${id}/edit`}>Edit</Link>
                 </Fragment>
             );
         }

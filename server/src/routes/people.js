@@ -31,4 +31,16 @@ router.post('/', (req, res) => {
     res.send('hello from post route');
 });
 
+router.put('/', (req, res) => {
+    const id = parseInt(req.body.id, 10);
+    UpdateChirp(id, req.body)
+    res.send('hello from put route');
+});
+
+router.delete('/', (req, res) => {
+    const id = parseInt(req.body.id, 10);
+    DeleteChirp(id)
+    res.send('hello from delete route');
+});
+
 export default router;
