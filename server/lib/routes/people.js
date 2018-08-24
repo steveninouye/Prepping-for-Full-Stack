@@ -10,7 +10,10 @@ var _chirpstore = require('../middleware/chirpstore');
 
 var router = (0, _express.Router)();
 
-router.get('/:id', function (req, res) {});
+router.get('/:id', function (req, res) {
+    var id = parseInt(req.params.id, 10);
+    res.json((0, _chirpstore.GetChirp)(id));
+});
 
 router.get('/', function (req, res) {
     var json = (0, _chirpstore.GetChirps)();

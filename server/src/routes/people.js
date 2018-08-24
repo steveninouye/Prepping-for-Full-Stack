@@ -9,18 +9,19 @@ import {
 
 let router = Router();
 
-router.get('/:id',(req,res) => {
-    
-})
+router.get('/:id', (req, res) => {
+    const id = parseInt(req.params.id, 10);
+    res.json(GetChirp(id));
+});
 
 router.get('/', (req, res) => {
     let json = GetChirps();
     let chirps = [];
-    for(let i = 0; true; i++){
-        if(!json[i]){
-            break
+    for (let i = 0; true; i++) {
+        if (!json[i]) {
+            break;
         }
-        chirps.push(GetChirps()[i])
+        chirps.push(GetChirps()[i]);
     }
     res.json(chirps);
 });

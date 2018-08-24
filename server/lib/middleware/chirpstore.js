@@ -1,5 +1,7 @@
 'use strict';
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 var fs = require('fs');
 var chirps = [];
 
@@ -12,6 +14,8 @@ var getChirps = function getChirps() {
 };
 
 var getChirp = function getChirp(id) {
+    console.log(id);
+    console.log(typeof id === 'undefined' ? 'undefined' : _typeof(id));
     return chirps.filter(function (e) {
         return e.id === id;
     })[0]; //create a copy and return it
