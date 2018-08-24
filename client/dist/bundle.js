@@ -26814,7 +26814,7 @@ var Edit = function (_Component) {
                 headers: { 'Content-Type': 'application/json; charset = utf-8' },
                 body: JSON.stringify(data)
             }).then(function () {
-                _this4.props.history.push('/');
+                _this4.props.history.replace('/');
             }).catch(function (err) {
                 return console.log(err);
             });

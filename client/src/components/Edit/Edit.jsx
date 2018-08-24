@@ -57,7 +57,7 @@ class Edit extends Component {
             body: JSON.stringify(data)
         })
             .then(() => {
-                this.props.history.push('/');
+                this.props.history.replace('/');
             })
             .catch((err) => console.log(err));
     }

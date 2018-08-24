@@ -1,16 +1,1 @@
-[
-    { "id": 0, "name": "Steven", "age": "33" },
-    { "id": 1, "name": "Sam", "age": "33" },
-    { "name": "4324", "age": "234234", "id": 4 },
-    { "name": "34234", "age": "34234", "id": 5 },
-    { "name": "34234", "age": "34234", "id": 6 },
-    { "name": "dgfa", "age": "23424", "id": 7 },
-    { "name": "dgfa", "age": "23424", "id": 8 },
-    { "name": "dgfa", "age": "23424", "id": 9 },
-    { "name": "Sam", "age": "3423", "id": 11 },
-    { "name": "fdf", "age": "343", "id": 12 },
-    { "name": "dfaf", "age": "343", "id": 13 },
-    { "name": "dfadf", "age": "34234", "id": 14 },
-    { "name": "fdsf", "age": "42342", "id": 15 },
-    { "name": "dfdasf", "age": "34234", "id": 16 }
-]
+[{"id":0,"name":"Steven","age":"33"},{"id":1,"name":"Sam","age":"33"},{"name":"4324","age":"234234","id":4},{"name":"34234","age":"34234","id":5},{"name":"34234","age":"34234","id":6},{"name":"dgfa","age":"23424","id":7},{"name":"dgfa","age":"23424","id":8},{"name":"dgfa","age":"23424","id":9},{"name":"Sam","age":"3423","id":11},{"name":"fdf","age":"343","id":12},{"name":"dfaf","age":"343","id":13},{"name":"dfadf","age":"34234","id":14}]
