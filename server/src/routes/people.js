@@ -15,15 +15,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.get('/', (req, res) => {
-    let json = GetChirps();
-    let chirps = [];
-    for (let i = 0; true; i++) {
-        if (!json[i]) {
-            break;
-        }
-        chirps.push(GetChirps()[i]);
-    }
-    res.json(chirps);
+    res.json(GetChirps());
 });
 
 router.post('/', (req, res) => {
@@ -33,13 +25,13 @@ router.post('/', (req, res) => {
 
 router.put('/', (req, res) => {
     const id = parseInt(req.body.id, 10);
-    UpdateChirp(id, req.body)
+    UpdateChirp(id, req.body);
     res.send('hello from put route');
 });
 
 router.delete('/', (req, res) => {
     const id = parseInt(req.body.id, 10);
-    DeleteChirp(id)
+    DeleteChirp(id);
     res.send('hello from delete route');
 });
 
