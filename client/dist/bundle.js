@@ -26750,13 +26750,13 @@ var Edit = function (_Component) {
         };
         _this.handleSubmit = _this.handleSubmit.bind(_this);
         _this.handleInput = _this.handleInput.bind(_this);
+        _this.handleDelete = _this.handleDelete.bind(_this);
         return _this;
     }
 
     _createClass(Edit, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
-            console.log(this.props.history);
             this.getUser(this.props.match.params.id);
         }
     }, {

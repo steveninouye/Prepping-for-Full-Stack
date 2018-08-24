@@ -13,10 +13,10 @@ class Edit extends Component {
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
 
     componentDidMount() {
-        console.log(this.props.history);
         this.getUser(this.props.match.params.id);
     }
 
@@ -48,7 +48,7 @@ class Edit extends Component {
         this.setState({ [e.target.name]: e.target.value });
     }
 
-    handleDelete(){
+    handleDelete() {
         const { chirp, name, age } = this.state;
         const data = { id: chirp.id, name, age };
         fetch(url, {
